@@ -1,0 +1,80 @@
+.ship-calendar-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #e5f4ff; /* light sea blue */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.calendar-title {
+  text-align: center;
+  color: #004b87; /* navy blue */
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.section-heading {
+  margin-top: 2rem;
+  color: #004b87;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.ship-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.ship-table thead {
+  background-color: #004b87;
+  color: white;
+}
+
+.ship-table th,
+.ship-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.ship-table tbody tr:nth-child(even):not(.ship-priority-high):not(.ship-priority-medium):not(.ship-priority-low) {
+  background-color: #f0faff;
+}
+
+.ship-priority-high {
+  background-color: #b22222; /* red */
+}
+
+.ship-priority-medium {
+  background-color: #ffcc80; /* orange */
+}
+
+.ship-priority-low {
+  background-color: #d0f0c0; /* green */
+}
+
+
+.no-ships-text {
+  padding: 1rem;
+  font-style: italic;
+  color: #777;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .ship-calendar-container {
+    padding: 1rem;
+  }
+
+  .ship-table th,
+  .ship-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,101 @@
+/* ComponentViewer.css */
+
+/* Container for the component viewer */
+.component-viewer {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  max-width: 100%;
+  margin: 30px auto;
+}
+
+/* Title styling */
+.component-viewer h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Component list styling */
+.component-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Individual component card styling */
+.component-card {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.component-card:hover {
+  background-color: #d5dbdb;
+}
+
+/* Component card heading */
+.component-card h3 {
+  font-size: 1.6rem;
+  color: #2980b9;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Component card details */
+.component-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.component-card p strong {
+  font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .component-viewer {
+    padding: 20px;
+  }
+
+  .component-viewer h2 {
+    font-size: 1.8rem;
+  }
+
+  .component-card {
+    width: 100%;
+  }
+
+  .component-card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .component-viewer {
+    padding: 15px;
+  }
+
+  .component-viewer h2 {
+    font-size: 1.6rem;
+  }
+
+  .component-card {
+    padding: 15px;
+  }
+
+  .component-card h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,111 @@
+/* AssignedJobList.css */
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f8f8;
+  font-family: 'Roboto', sans-serif;
+}
+
+.assigned-job-list {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  max-width: 100%;
+  margin: 30px auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+th {
+  background-color: #2980b9;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+td {
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+td:hover {
+  background-color: #d5dbdb;
+}
+
+select {
+  padding: 8px 15px;
+  border: 2px solid #2980b9;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #2980b9;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+select:hover {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+option {
+  background-color: #fff;
+  color: #333;
+}
+
+p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  table, th, td {
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 12px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .assigned-job-list {
+    padding: 20px;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  table th, table td {
+    font-size: 0.8rem;
+  }
+}

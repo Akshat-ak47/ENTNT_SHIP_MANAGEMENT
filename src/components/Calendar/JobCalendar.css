@@ -1,0 +1,128 @@
+.job-calendar-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #eef3f9; /* lighter blue-gray background */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.calendar-title {
+  text-align: center;
+  color: #1f3a93; /* Deep blue title */
+  margin-bottom: 1rem;
+}
+
+.date-picker {
+  margin: 1rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.date-input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: fit-content;
+  background: #fff;
+}
+
+.calendar-popup {
+  position: absolute;
+  top: 70px;
+  z-index: 100;
+  background: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.section-heading {
+  margin-top: 2rem;
+  color: #1f3a93;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.job-table thead {
+  background-color: #1f3a93; /* dark blue */
+  color: white;
+}
+
+.job-table th,
+.job-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.job-table tbody tr:nth-child(even):not(.job-priority-high):not(.job-priority-medium):not(.job-priority-low) {
+  background-color: #f4f7fb;
+}
+
+.job-priority-high {
+  background-color: #fa6565;
+}
+
+.job-priority-medium {
+  background-color: #ffb640;
+}
+
+.job-priority-low {
+  background-color: #f4fc89;
+}
+
+.no-jobs-text {
+  padding: 1rem;
+  font-style: italic;
+  color: #777;
+}
+
+/* Calendar Date Styles */
+.calendar-popup .date-picker .date {
+  color: #000; /* Default color for dates */
+  padding: 8px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Color for weekends */
+.calendar-popup .date-picker .date.weekend {
+  color: red; /* Red color for weekends */
+}
+
+/* Color for previous month's dates */
+.calendar-popup .date-picker .date.prev-month {
+  color: gray; /* Gray color for previous month's dates */
+}
+
+/* Color for current month's dates (non-weekends) */
+.calendar-popup .date-picker .date:not(.weekend):not(.prev-month) {
+  color: black; /* Black for non-weekend dates */
+}
+
+@media (max-width: 768px) {
+  .job-calendar-container {
+    padding: 1rem;
+  }
+
+  .job-table th,
+  .job-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+}

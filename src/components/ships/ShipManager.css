@@ -1,0 +1,39 @@
+/* ShipManager.css */
+.ship-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.ship-table th,
+.ship-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.ship-table th {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #e53935;
+}

@@ -1,0 +1,71 @@
+/* NotificationCenter.css */
+
+/* Container for the notification center */
+.notification-center {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  max-width: 100%;
+  margin: 30px auto;
+}
+
+/* Title styling */
+.notification-center h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Notification list styling */
+.notification-center ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual notification item styling */
+.notification-item {
+  background-color: #ecf0f1;
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+  background-color: #d5dbdb;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .notification-center {
+    padding: 20px;
+  }
+
+  .notification-center h2 {
+    font-size: 1.8rem;
+  }
+
+  .notification-item {
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .notification-center {
+    padding: 15px;
+  }
+
+  .notification-center h2 {
+    font-size: 1.6rem;
+  }
+
+  .notification-item {
+    padding: 10px;
+  }
+}

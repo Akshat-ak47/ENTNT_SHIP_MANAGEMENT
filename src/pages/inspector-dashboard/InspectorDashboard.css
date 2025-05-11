@@ -1,0 +1,79 @@
+/* Headings */
+.inspection-manager h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50; /* Darker color for a professional look */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.inspection-manager h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: #f29e4c; /* Orange accent for visual appeal */
+  bottom: -10px;
+  left: 25%;
+  border-radius: 2px;
+}
+
+h3 {
+  color: #34495e; /* Slightly lighter shade for subheadings */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: relative;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #f29e4c; /* Consistent accent color */
+  bottom: -5px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.component-card h2,
+.component-card h3 {
+  color: #f29e4c; /* Orange color for emphasis */
+  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.job-card h2,
+.job-card h3 {
+  color: #9bc53d; /* Green color for job-related headings */
+  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Enhanced Styling for Section Titles */
+h2, h3 {
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+h2:hover, h3:hover {
+  color: #00a8ff; /* Hover effect for interactivity */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+h2:hover::after, h3:hover::after {
+  background: #00a8ff; /* Change underline color on hover */
+}
