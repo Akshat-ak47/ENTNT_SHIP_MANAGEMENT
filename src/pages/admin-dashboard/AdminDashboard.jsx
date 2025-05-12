@@ -95,8 +95,17 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <div className="top-layer">
-        <h1>Admin Dashboard</h1>
+      <div className="topbar">
+        <h1 className="dashboard-title">Admin Dashboard</h1>
+        <div className="sidebar-buttons">
+          <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
+          <button onClick={() => setActiveSection('management')}>Management</button>
+          <button onClick={() => setActiveSection('viewJobs')}>Jobs</button>
+          <button onClick={() => setActiveSection('viewShips')}>Ships</button>
+          <button onClick={() => setActiveSection('viewComponents')}>Components</button>
+          <button onClick={() => setActiveSection('notifications')}>Notifications</button>
+          <button className="logout" onClick={handleLogout}>Logout</button>
+        </div>
         <div className="profile-section">
           <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
             👤
@@ -110,22 +119,8 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      <div className="dashboard-body">
-        <div className="sidebar">
-          <div className="sidebar-buttons">
-            <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
-            <button onClick={() => setActiveSection('management')}>Management</button>
-            <button onClick={() => setActiveSection('viewJobs')}>Jobs</button>
-            <button onClick={() => setActiveSection('viewShips')}>Ships</button>
-            <button onClick={() => setActiveSection('viewComponents')}>Components</button>
-            <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-            <button className="logout" onClick={handleLogout}>Logout</button>
-          </div>
-        </div>
-
-        <div className="content">
-          {renderSection()}
-        </div>
+      <div className="content">
+        {renderSection()}
       </div>
     </div>
   );
