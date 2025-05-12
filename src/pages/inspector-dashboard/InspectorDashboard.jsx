@@ -25,7 +25,6 @@ const InspectorDashboard = () => {
   const email = localStorage.getItem('email');
   const role = localStorage.getItem('role');
 
-  // Fetch data from localStorage
   useEffect(() => {
     const fetchData = () => {
       try {
@@ -43,7 +42,6 @@ const InspectorDashboard = () => {
     fetchData();
   }, []);
 
-  // Update localStorage whenever relevant state changes
   useEffect(() => {
     try {
       localStorage.setItem('ships', JSON.stringify(ships));
@@ -59,10 +57,8 @@ const InspectorDashboard = () => {
     window.location.href = '/login';
   };
 
-  // Loading screen while data is being fetched
   if (loading) return <div className="loading-screen">Loading...</div>;
 
-  // Section rendering using an object map
   const sectionComponents = {
     kpi: <KPICharts ships={ships} components={components} jobs={jobs} />,
     inspectionManagement: (
@@ -104,8 +100,17 @@ const InspectorDashboard = () => {
 
   return (
     <div className="inspector-dashboard">
-      <div className="top-layer">
-        <h1>Inspector Dashboard</h1>
+      <div className="top-bar">
+        <div className="dashboard-title">Inspector Dashboard</div>
+        <div className="nav-buttons">
+          <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
+          <button onClick={() => setActiveSection('inspectionManagement')}>Inspection Management</button>
+          <button onClick={() => setActiveSection('viewJobs')}>Jobs</button>
+          <button onClick={() => setActiveSection('viewShips')}>Ships</button>
+          <button onClick={() => setActiveSection('viewComponents')}>Components</button>
+          <button onClick={() => setActiveSection('notifications')}>Notifications</button>
+          <button className="logout" onClick={handleLogout}>Logout</button>
+        </div>
         <div className="profile-section">
           <div
             className="profile-circle"
@@ -123,18 +128,6 @@ const InspectorDashboard = () => {
       </div>
 
       <div className="dashboard-body">
-        <div className="sidebar">
-          <div className="sidebar-buttons">
-            <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
-            <button onClick={() => setActiveSection('inspectionManagement')}>Inspection Management</button>
-            <button onClick={() => setActiveSection('viewJobs')}>Jobs</button>
-            <button onClick={() => setActiveSection('viewShips')}>Ships</button>
-            <button onClick={() => setActiveSection('viewComponents')}>Components</button>
-            <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-            <button className="logout" onClick={handleLogout}>Logout</button>
-          </div>
-        </div>
-
         <div className="content">
           {renderSection()}
         </div>
