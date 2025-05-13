@@ -1,5 +1,4 @@
-// src/pages/engineer-dashboard/EngineerDashboard.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './EngineerDashboard.css';
 import { useJobContext } from '../../contexts/JobContext';
 
@@ -16,6 +15,7 @@ const EngineerDashboard = () => {
   const [activeSection, setActiveSection] = useState('kpi');
   const [loading, setLoading] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
+  const profileRef = useRef(null);
 
   const email = localStorage.getItem('email');
   const role = localStorage.getItem('role');
@@ -33,12 +33,28 @@ const EngineerDashboard = () => {
     localStorage.setItem('notifications', JSON.stringify(notifications));
   }, [notifications]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfile(false);
+      }
+    };
+
+    if (showProfile) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showProfile]);
+
   const handleLogout = () => {
     localStorage.clear();
     window.location.href = '/login';
   };
-
-  if (loading) return <div className="loading-screen">Loading...</div>;
 
   const renderSection = () => {
     switch (activeSection) {
@@ -65,39 +81,36 @@ const EngineerDashboard = () => {
     }
   };
 
+  if (loading) return <div className="loading-screen">Loading...</div>;
+
   return (
     <div className="engineer-dashboard">
-      <div className="top-layer">
+      <div className="top-bar">
         <h1>Engineer Dashboard</h1>
-        <div className="profile-section">
-          <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
+        <div className="top-bar-buttons">
+          <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
+          <button onClick={() => setActiveSection('assignedJobs')}>Assigned Jobs</button>
+          <button onClick={() => setActiveSection('calendar')}>Job Calendar</button>
+          <button onClick={() => setActiveSection('componentViewer')}>Component Viewer</button>
+          <button onClick={() => setActiveSection('notifications')}>Notifications</button>
+          <button onClick={() => setActiveSection('userManagement')}>User Access</button>
+        </div>
+        <div className="profile" ref={profileRef}>
+          <div className="profile-icon" onClick={() => setShowProfile(!showProfile)}>
             👷
           </div>
           {showProfile && (
             <div className="profile-dropdown">
               <p><strong>Email:</strong> {email}</p>
               <p><strong>Role:</strong> {role}</p>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
             </div>
           )}
         </div>
       </div>
 
       <div className="dashboard-body">
-        <div className="sidebar">
-          <div className="sidebar-buttons">
-            <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
-            <button onClick={() => setActiveSection('assignedJobs')}>Assigned Jobs</button>
-            <button onClick={() => setActiveSection('calendar')}>Job Calendar</button>
-            <button onClick={() => setActiveSection('componentViewer')}>Component Viewer</button>
-            <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-            <button onClick={() => setActiveSection('userManagement')}>User Access</button>
-            <button className="logout" onClick={handleLogout}>Logout</button>
-          </div>
-        </div>
-
-        <div className="content">
-          {renderSection()}
-        </div>
+        <div className="content">{renderSection()}</div>
       </div>
     </div>
   );

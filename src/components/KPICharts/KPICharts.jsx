@@ -138,7 +138,7 @@ const KPICharts = ({ jobs, ships, components }) => {
         </select>
       </div>
 
-      <div style={{ position: 'relative', height: '300px', width: '1000px', borderRadius: '8px', border: '1px solid #ddd', padding: '20px', backgroundColor: '#f9fafb' }}>
+      <div style={{ position: 'relative', height: '350px', width: '550px', borderRadius: '8px', border: '1px solid #ddd', padding: '20px', backgroundColor: '#f9fafb' }}>
         <Line data={data} options={options} />
       </div>
 

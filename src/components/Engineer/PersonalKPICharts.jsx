@@ -75,53 +75,52 @@ const PersonalKPICharts = ({ jobs }) => {
   };
 
   const drawLineChart = (ctx, data, labels) => {
-  const maxValue = Math.max(...data);
-  const minValue = Math.min(...data);
-  const maxHeight = 300;  // Max height for the chart
+    const maxValue = Math.max(...data);
+    const minValue = Math.min(...data);
+    const maxHeight = 300;  // Max height for the chart
   
-  // Draw Y-axis
-  ctx.beginPath();
-  ctx.moveTo(50, 50);
-  ctx.lineTo(50, 350);
-  ctx.strokeStyle = '#333';
-  ctx.lineWidth = 1;
-  ctx.stroke();
+    // Draw Y-axis
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(50, 350);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.stroke();
   
-  // Add Y-axis labels
-  ctx.font = '10px Arial';
-  ctx.fillStyle = '#333';
-  const yStep = (maxValue - minValue) / 5;  // Dividing the axis into 5 steps
-  for (let i = 0; i <= 5; i++) {
-    const yValue = maxValue - i * yStep;
-    ctx.fillText(Math.round(yValue), 30, 350 - (i * (maxHeight / 5)));
-  }
-
-  // Draw the line chart
-  ctx.beginPath();
-  ctx.moveTo(50, 350 - (data[0] / maxValue) * maxHeight);
-  data.forEach((value, index) => {
-    const x = (index + 1) * 100;
-    const y = 350 - (value / maxValue) * maxHeight;
-    ctx.lineTo(x, y);
-  });
-  ctx.strokeStyle = '#9b59b6';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Add points and labels to the chart
-  data.forEach((value, index) => {
-    const x = (index + 1) * 100;
-    const y = 350 - (value / maxValue) * maxHeight;
+    // Add Y-axis labels
+    ctx.font = '10px Arial';
     ctx.fillStyle = '#333';
-    ctx.fillText(labels[index], x, y - 10);
-  });
+    const yStep = (maxValue - minValue) / 5;  // Dividing the axis into 5 steps
+    for (let i = 0; i <= 5; i++) {
+      const yValue = maxValue - i * yStep;
+      ctx.fillText(Math.round(yValue), 30, 350 - (i * (maxHeight / 5)));
+    }
 
-  // Label for the line chart
-  ctx.fillStyle = '#9b59b6';
-  ctx.font = '12px Arial';
-  ctx.fillText('Jobs Completed Over Time', 10, 20);
-};
+    // Draw the line chart
+    ctx.beginPath();
+    ctx.moveTo(50, 350 - (data[0] / maxValue) * maxHeight);
+    data.forEach((value, index) => {
+      const x = (index + 1) * 100;
+      const y = 350 - (value / maxValue) * maxHeight;
+      ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = '#9b59b6';
+    ctx.lineWidth = 2;
+    ctx.stroke();
 
+    // Add points and labels to the chart
+    data.forEach((value, index) => {
+      const x = (index + 1) * 100;
+      const y = 350 - (value / maxValue) * maxHeight;
+      ctx.fillStyle = '#333';
+      ctx.fillText(labels[index], x, y - 10);
+    });
+
+    // Label for the line chart
+    ctx.fillStyle = '#9b59b6';
+    ctx.font = '12px Arial';
+    ctx.fillText('Jobs Completed Over Time', 10, 20);
+  };
 
   const renderCharts = useCallback(() => {
     const pieCanvas = pieCanvasRef.current;
@@ -178,7 +177,7 @@ const PersonalKPICharts = ({ jobs }) => {
       </div>
       <div className="chart-container">
         <div className="chart-row">
-          <div className="chart-title">Job Status Distribution</div>
+          <div className="chart-title-center">Job Status Distribution</div>
           <canvas
             ref={pieCanvasRef}
             width="400"
@@ -186,7 +185,7 @@ const PersonalKPICharts = ({ jobs }) => {
             className="chart"
             onMouseMove={(e) => handleMouseMove(e, pieCanvasRef, 'pie')}
           />
-          <div className="chart-title">Defects Overview</div>
+          <div className="chart-title-center">Defects Overview</div>
           <canvas
             ref={barCanvasRef}
             width="400"
@@ -196,7 +195,7 @@ const PersonalKPICharts = ({ jobs }) => {
           />
         </div>
         <div className="chart-row">
-          <div className="chart-title">Job Completion Over Time</div>
+          <div className="chart-title-center">Job Completion Over Time</div>
           <canvas
             ref={lineCanvasRef}
             width="400"

@@ -1,5 +1,5 @@
 // src/pages/admin-dashboard/AdminDashboard.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './AdminDashboard.css';
 import { useJobContext } from '../../contexts/JobContext';
 
@@ -21,6 +21,7 @@ const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState('kpi');
   const [loading, setLoading] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
+  const profileRef = useRef(null); // 👈 add ref
 
   const email = localStorage.getItem('email');
   const role = localStorage.getItem('role');
@@ -45,6 +46,20 @@ const AdminDashboard = () => {
     localStorage.clear();
     window.location.href = '/login';
   };
+
+  // 👇 Handle outside click to close profile dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfile(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   if (loading) return <div className="loading-screen">Loading...</div>;
 
@@ -104,9 +119,9 @@ const AdminDashboard = () => {
           <button onClick={() => setActiveSection('viewShips')}>Ships</button>
           <button onClick={() => setActiveSection('viewComponents')}>Components</button>
           <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-          <button className="logout" onClick={handleLogout}>Logout</button>
         </div>
-        <div className="profile-section">
+
+        <div className="profile-section" ref={profileRef}>
           <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
             👤
           </div>
@@ -114,6 +129,7 @@ const AdminDashboard = () => {
             <div className="profile-dropdown">
               <p><strong>Email:</strong> {email}</p>
               <p><strong>Role:</strong> {role}</p>
+              <button className="logout" onClick={handleLogout}>Logout</button>
             </div>
           )}
         </div>

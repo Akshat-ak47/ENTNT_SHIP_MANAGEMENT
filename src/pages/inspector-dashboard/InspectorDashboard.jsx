@@ -1,5 +1,4 @@
-// src/pages/inspector-dashboard/InspectorDashboard.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './InspectorDashboard.css';
 import { useJobContext } from '../../contexts/JobContext';
 
@@ -22,6 +21,7 @@ const InspectorDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
 
+  const profileRef = useRef(null);
   const email = localStorage.getItem('email');
   const role = localStorage.getItem('role');
 
@@ -56,6 +56,19 @@ const InspectorDashboard = () => {
     localStorage.clear();
     window.location.href = '/login';
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfile(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   if (loading) return <div className="loading-screen">Loading...</div>;
 
@@ -109,9 +122,8 @@ const InspectorDashboard = () => {
           <button onClick={() => setActiveSection('viewShips')}>Ships</button>
           <button onClick={() => setActiveSection('viewComponents')}>Components</button>
           <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-          <button className="logout" onClick={handleLogout}>Logout</button>
         </div>
-        <div className="profile-section">
+        <div className="profile-section" ref={profileRef}>
           <div
             className="profile-circle"
             onClick={() => setShowProfile(!showProfile)}
@@ -122,6 +134,7 @@ const InspectorDashboard = () => {
             <div className="profile-dropdown">
               <p><strong>Email:</strong> {email}</p>
               <p><strong>Role:</strong> {role}</p>
+              <button className="logout" onClick={handleLogout}>Logout</button>
             </div>
           )}
         </div>
