@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/static/css/main.564ea654.css",
+    "main.js": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/static/js/main.def6a4a9.js",
+    "static/media/logo.jpg": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/static/media/logo.311a9d5a8f1399899e95.jpg",
+    "index.html": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/index.html",
+    "main.564ea654.css.map": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/static/css/main.564ea654.css.map",
+    "main.def6a4a9.js.map": "/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git/static/js/main.def6a4a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.564ea654.css",
+    "static/js/main.def6a4a9.js"
+  ]
+}
