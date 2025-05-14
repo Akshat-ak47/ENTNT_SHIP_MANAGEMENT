@@ -45,7 +45,7 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = '/login';
+    window.location.href = '/ENTNT_SHIP_MANAGEMENT/login';
   };
 
   // 👇 Handle outside click to close profile dropdown

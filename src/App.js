@@ -6,8 +6,8 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { JobProvider } from './contexts/JobContext';
 import { ShipProvider } from './contexts/ShipContext';
 import { ComponentsProvider } from './contexts/ComponentsContext';
-import { InspectionProvider } from './contexts/InspectionContext'; // Import the InspectionContext
-import { EngineerProvider } from './contexts/EngineerContext'; // Import the EngineerContext
+import { InspectionProvider } from './contexts/InspectionContext';
+import { EngineerProvider } from './contexts/EngineerContext';
 
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/admin-dashboard/AdminDashboard';
@@ -21,8 +21,8 @@ import ComponentCalendarView from './components/Calendar/ComponentCalendarView';
 function ProtectedRoute({ children, roles }) {
   const { user } = useAuth();
 
-  if (!user) return <Navigate to="/login" />;
-  if (roles && !roles.includes(user.role)) return <Navigate to="/unauthorized" />;
+  if (!user) return <Navigate to="/login" replace />;
+  if (roles && !roles.includes(user.role)) return <Navigate to="/unauthorized" replace />;
 
   return children;
 }
@@ -76,8 +76,8 @@ function AppRoutes() {
         }
       />
 
-      <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="*" element={<Navigate to="/login" />} />
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }
@@ -88,9 +88,10 @@ function App() {
       <JobProvider>
         <ShipProvider>
           <ComponentsProvider>
-            <InspectionProvider> {/* Wrap the app with InspectionProvider */}
-              <EngineerProvider> {/* Wrap the app with EngineerProvider */}
-                <Router>
+            <InspectionProvider>
+              <EngineerProvider>
+                {/* 👇 Add basename here for GitHub Pages */}
+                <Router basename="/ENTNT_SHIP_MANAGEMENT">
                   <AppRoutes />
                 </Router>
               </EngineerProvider>

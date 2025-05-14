@@ -54,7 +54,7 @@ const InspectorDashboard = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = '/login';
+    window.location.href = '/ENTNT_SHIP_MANAGEMENT/login';
   };
 
   useEffect(() => {
