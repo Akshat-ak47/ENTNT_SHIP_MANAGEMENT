@@ -1,5 +1,4 @@
 /* styles/login.css */
-
 .login-page {
   background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
   min-height: 100vh;
@@ -10,24 +9,24 @@
   padding: 20px;
 }
 
-.top-bar {
+.login-page .top-bar {
   display: flex;
   align-items: center;
   justify-content: center; /* Centers the content horizontally */
   margin-bottom: 30px;
+  background-color: transparent;
 }
 
 .logo {
   width: 80px; /* Size of the logo */
   height: 80px; /* Size of the logo */
   position: absolute;
-  margin-left: -1150px; /* Move it to the extreme left */
+  left:-400px; /* Move it to the extreme left */
   margin-top: -90px; /* Move it to the extreme top */
   border-radius: 50%; /* Make it round */
   transition: all 0.3s ease; /* Smooth transition for glow effect */
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
 }
-
 
 .logo:hover {
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.8); /* Glow intensifies on hover */
@@ -35,9 +34,14 @@
 
 .project-name {
   color: #fff;
-  font-size: 2rem; /* Increased size */
+  font-size: 2rem;
   font-weight: bold;
-  text-align: center; /* Ensures text is centered */
+  text-align: center;
+  background: none;         /* Remove any background */
+  background-color: transparent; /* Ensure transparency */
+  padding: 0;               /* Remove any padding if not needed */
+  box-shadow: none;         /* Remove any shadow if it exists */
+  border: none;             /* Remove any border */
 }
 
 .login-box {
