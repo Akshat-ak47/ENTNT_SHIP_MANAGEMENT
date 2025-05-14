@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ENTNT_SHIP_MANAGEMENT/static/css/main.564ea654.css",
-    "main.js": "/ENTNT_SHIP_MANAGEMENT/static/js/main.5c039217.js",
+    "main.js": "/ENTNT_SHIP_MANAGEMENT/static/js/main.d4edd24f.js",
     "static/media/logo.jpg": "/ENTNT_SHIP_MANAGEMENT/static/media/logo.311a9d5a8f1399899e95.jpg",
     "index.html": "/ENTNT_SHIP_MANAGEMENT/index.html",
     "main.564ea654.css.map": "/ENTNT_SHIP_MANAGEMENT/static/css/main.564ea654.css.map",
-    "main.5c039217.js.map": "/ENTNT_SHIP_MANAGEMENT/static/js/main.5c039217.js.map"
+    "main.d4edd24f.js.map": "/ENTNT_SHIP_MANAGEMENT/static/js/main.d4edd24f.js.map"
   },
   "entrypoints": [
     "static/css/main.564ea654.css",
-    "static/js/main.5c039217.js"
+    "static/js/main.d4edd24f.js"
   ]
 }
