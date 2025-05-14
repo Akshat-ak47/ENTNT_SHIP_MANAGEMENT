@@ -14,7 +14,10 @@ export const EngineerProvider = ({ children }) => {
     const sampleUsers = [
       { email: 'akshat.srivastava@entnt.in', role: 'engineer' },
       { email: 'emma.watson@entnt.in', role: 'engineer' },
-      { email: 'hr@entnt.in', role: 'manager' }
+      { email: 'hr@entnt.in', role: 'manager' },
+      { email: "admin@entnt.in", role: "Admin" },
+      { email: "inspector@entnt.in", role: "inspector" },
+      { email: "engineer@entnt.in", role: "Engineer" },
     ];
     setUsers(sampleUsers);
     localStorage.setItem('users', JSON.stringify(sampleUsers));

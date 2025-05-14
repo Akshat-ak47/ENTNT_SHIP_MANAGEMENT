@@ -1,0 +1,61 @@
+.kpi-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kpi-container h2 {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.time-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.time-selector label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.time-selector select {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #111827;
+}
+
+.charts-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.chart-card {
+  width: 500px;
+  height: 350px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.health-index {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #111827;
+  font-weight: 600;
+}

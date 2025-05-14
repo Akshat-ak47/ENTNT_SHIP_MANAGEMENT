@@ -7,7 +7,6 @@ import EngineerJobCalendar from '../../components/Engineer/EngineerJobCalendar';
 import ComponentViewer from '../../components/Engineer/ComponentViewer';
 import NotificationCenter from '../../components/Notifications/NotificationCenter';
 import PersonalKPICharts from '../../components/Engineer/PersonalKPICharts';
-import UserManagement from '../../components/Engineer/UserManagement';
 
 const EngineerDashboard = () => {
   const { jobs } = useJobContext();
@@ -74,8 +73,6 @@ const EngineerDashboard = () => {
             filterByEngineerId={engineerId}
           />
         );
-      case 'userManagement':
-        return <UserManagement />;
       default:
         return <div>Invalid section</div>;
     }
@@ -93,7 +90,6 @@ const EngineerDashboard = () => {
           <button onClick={() => setActiveSection('calendar')}>Job Calendar</button>
           <button onClick={() => setActiveSection('componentViewer')}>Component Viewer</button>
           <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-          <button onClick={() => setActiveSection('userManagement')}>User Access</button>
         </div>
         <div className="profile" ref={profileRef}>
           <div className="profile-icon" onClick={() => setShowProfile(!showProfile)}>

@@ -12,6 +12,7 @@ import KPICharts from '../../components/KPICharts/KPICharts';
 import JobCalendar from '../../components/Calendar/JobCalendar';
 import ShipCalendarView from '../../components/Calendar/ShipCalendarView';
 import ComponentCalendarView from '../../components/Calendar/ComponentCalendarView';
+import UserManagement from '../../components/Engineer/UserManagement';
 
 const AdminDashboard = () => {
   const { jobs, setJobs } = useJobContext();
@@ -103,6 +104,8 @@ const AdminDashboard = () => {
             setNotifications={setNotifications}
           />
         );
+      case 'userManagement':
+        return <UserManagement />;
       default:
         return <div>Invalid section</div>;
     }
@@ -119,6 +122,7 @@ const AdminDashboard = () => {
           <button onClick={() => setActiveSection('viewShips')}>Ships</button>
           <button onClick={() => setActiveSection('viewComponents')}>Components</button>
           <button onClick={() => setActiveSection('notifications')}>Notifications</button>
+          <button onClick={() => setActiveSection('userManagement')}>User Access</button>
         </div>
 
         <div className="profile-section" ref={profileRef}>

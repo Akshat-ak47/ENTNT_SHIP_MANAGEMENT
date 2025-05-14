@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Line, Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+} from 'chart.js';
+import './KPICharts.css';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
 
 const KPICharts = ({ jobs, ships, components }) => {
   const [kpiData, setKpiData] = useState({
@@ -13,20 +24,19 @@ const KPICharts = ({ jobs, ships, components }) => {
     jobsCompleted: 0,
     componentsFixed: 0,
   });
-  
-  const [timeRange, setTimeRange] = useState('monthly'); // Dynamic Time Range: monthly, weekly, yearly
+
+  const [timeRange, setTimeRange] = useState('monthly');
   const [targetData] = useState({
-    totalShips: 2, // Target total ships
-    jobsOpen: 1,   // Target open jobs
-    jobsScheduled: 1,  // Target scheduled jobs
-    overdueComponents: 1, // Target overdue components
-    jobsCompleted: 1,    // Target completed jobs
-    componentsFixed: 1,  // Target fixed components
+    totalShips: 2,
+    jobsOpen: 1,
+    jobsScheduled: 1,
+    overdueComponents: 1,
+    jobsCompleted: 1,
+    componentsFixed: 1,
   });
 
   useEffect(() => {
     const totalShips = ships.length;
-    
     const jobsOpen = jobs.filter((job) => job.status === 'Open').length;
     const jobsScheduled = jobs.filter((job) => job.status === 'Scheduled').length;
     const jobsCompleted = jobs.filter((job) => job.status === 'Completed').length;
@@ -35,11 +45,10 @@ const KPICharts = ({ jobs, ships, components }) => {
     const overdueComponents = components.filter((component) => {
       const lastMaintenanceDate = new Date(component.lastMaintenanceDate);
       const timeDiff = currentDate - lastMaintenanceDate;
-      const daysDiff = timeDiff / (1000 * 3600 * 24); 
+      const daysDiff = timeDiff / (1000 * 3600 * 24);
       return daysDiff > 30;
     }).length;
 
-    // Add condition based on timeRange selection (Monthly, Weekly, or Yearly)
     const filteredComponents = components.filter((component) => {
       const lastMaintenanceDate = new Date(component.lastMaintenanceDate);
       if (timeRange === 'monthly') {
@@ -70,67 +79,77 @@ const KPICharts = ({ jobs, ships, components }) => {
     setTimeRange(e.target.value);
   };
 
-  const data = {
+  const lineChartData = {
     labels: ['Ships', 'Jobs Open', 'Jobs Scheduled', 'Jobs Completed', 'Overdue Components', 'Components Fixed'],
     datasets: [
       {
         label: 'KPI Overview',
         data: [
-          kpiData.totalShips, 
-          kpiData.jobsOpen, 
-          kpiData.jobsScheduled, 
-          kpiData.jobsCompleted, 
-          kpiData.overdueComponents, 
+          kpiData.totalShips,
+          kpiData.jobsOpen,
+          kpiData.jobsScheduled,
+          kpiData.jobsCompleted,
+          kpiData.overdueComponents,
           kpiData.componentsFixed
         ],
-        fill: false,
         borderColor: '#2563eb',
+        fill: false,
         tension: 0.1,
       },
       {
         label: 'Target Overview',
         data: [
-          targetData.totalShips, 
-          targetData.jobsOpen, 
-          targetData.jobsScheduled, 
-          targetData.jobsCompleted, 
-          targetData.overdueComponents, 
+          targetData.totalShips,
+          targetData.jobsOpen,
+          targetData.jobsScheduled,
+          targetData.jobsCompleted,
+          targetData.overdueComponents,
           targetData.componentsFixed
         ],
+        borderColor: '#34D399',
+        borderDash: [5, 5],
         fill: false,
-        borderColor: '#34D399', // Green for target line
-        borderDash: [5, 5], // Dashed line for target
         tension: 0.1,
       },
     ],
   };
 
-  const options = {
+  const doughnutChartData = {
+    labels: ['Jobs Open', 'Jobs Scheduled', 'Jobs Completed'],
+    datasets: [
+      {
+        label: 'Job Status Distribution',
+        data: [kpiData.jobsOpen, kpiData.jobsScheduled, kpiData.jobsCompleted],
+        backgroundColor: ['#facc15', '#60a5fa', '#4ade80'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    height: 200,
-    width: 400,
     plugins: {
       tooltip: {
         callbacks: {
           label: function (context) {
-            return `Count: ${context.raw}`; // Detailed tooltip data
+            return `Count: ${context.raw}`;
           },
         },
       },
     },
   };
 
-  // Calculate Health Index (average of all KPIs)
   const healthIndex = (
     (kpiData.jobsOpen + kpiData.jobsScheduled + kpiData.jobsCompleted + kpiData.overdueComponents + kpiData.componentsFixed) / 5
   ).toFixed(2);
 
   return (
-    <div>
-      <h2>Key Performance Indicators (KPIs)</h2>
-      <div>
-        <label htmlFor="timeRange">Select Time Range: </label>
+    <div className="kpi-container">
+      <h2>KPI Dashboard</h2>
+
+      <div className="time-selector">
+        <label htmlFor="timeRange">Time Range:</label>
         <select id="timeRange" value={timeRange} onChange={handleTimeRangeChange}>
           <option value="monthly">Monthly</option>
           <option value="weekly">Weekly</option>
@@ -138,12 +157,17 @@ const KPICharts = ({ jobs, ships, components }) => {
         </select>
       </div>
 
-      <div style={{ position: 'relative', height: '350px', width: '550px', borderRadius: '8px', border: '1px solid #ddd', padding: '20px', backgroundColor: '#f9fafb' }}>
-        <Line data={data} options={options} />
+      <div className="charts-wrapper">
+        <div className="chart-card">
+          <Line data={lineChartData} options={chartOptions} />
+        </div>
+        <div className="chart-card">
+          <Doughnut data={doughnutChartData} options={chartOptions} />
+        </div>
       </div>
 
-      <div style={{ marginTop: '20px' }}>
-        <h3>Health Index: {healthIndex}</h3>
+      <div className="health-index">
+        <h3>System Health Index: {healthIndex}</h3>
       </div>
     </div>
   );

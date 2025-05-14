@@ -6,7 +6,7 @@ import InspectionManager from '../../components/ships/InspectionManager';
 import ComponentInspection from '../../components/ComponentManagers/ComponentInspection';
 import JobManager from '../../components/Jobs/JobManager';
 import NotificationCenter from '../../components/Notifications/NotificationCenter';
-import KPICharts from '../../components/KPICharts/KPICharts';
+import KPICharts from '../../components/KPICharts/KPIChart_Inspector';
 
 import JobCalendar from '../../components/Calendar/JobCalendar';
 import ShipCalendarView from '../../components/Calendar/ShipCalendarView';
