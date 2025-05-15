@@ -63,18 +63,23 @@
   font-weight: 600;
 }
 
-/* Mobile responsiveness */
+/* Tablet Screens (≤768px) */
 @media screen and (max-width: 768px) {
   .component-viewer {
     padding: 20px;
+    margin: 20px 10px;
   }
 
   .component-viewer h2 {
     font-size: 1.8rem;
   }
 
+  .component-list {
+    justify-content: center;
+  }
+
   .component-card {
-    width: 100%;
+    max-width: 100%;
   }
 
   .component-card h3 {
@@ -82,9 +87,11 @@
   }
 }
 
+/* Mobile Screens (≤480px) */
 @media screen and (max-width: 480px) {
   .component-viewer {
     padding: 15px;
+    margin: 15px 8px;
   }
 
   .component-viewer h2 {
@@ -93,9 +100,15 @@
 
   .component-card {
     padding: 15px;
+    max-width: 100%;
+    width: 100%;
   }
 
   .component-card h3 {
     font-size: 1.3rem;
+  }
+
+  .component-card p {
+    font-size: 0.95rem;
   }
 }

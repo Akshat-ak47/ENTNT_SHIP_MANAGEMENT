@@ -89,23 +89,61 @@ p {
   margin-top: 30px;
 }
 
+/* Tablet Screens (≤768px) */
 @media screen and (max-width: 768px) {
+  .assigned-job-list {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
   table, th, td {
     font-size: 0.9rem;
   }
+
   th, td {
     padding: 12px 15px;
   }
+
+  select {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
 }
 
+/* Mobile Screens (≤480px) */
 @media screen and (max-width: 480px) {
   .assigned-job-list {
-    padding: 20px;
+    padding: 15px;
+    margin: 15px 8px;
   }
+
   h2 {
     font-size: 1.6rem;
   }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
   table th, table td {
     font-size: 0.8rem;
+    padding: 10px 12px;
+  }
+
+  select {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 20px;
   }
 }

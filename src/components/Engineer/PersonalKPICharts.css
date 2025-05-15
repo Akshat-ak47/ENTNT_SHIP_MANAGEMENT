@@ -83,3 +83,89 @@
 .chart {
   cursor: pointer;
 }
+
+@media (max-width: 480px) {
+  .kpi-charts {
+    padding: 20px 15px;
+  }
+
+  .kpi-charts h2 {
+    font-size: 24px;
+  }
+
+  .kpi-boxes {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .chart-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+  }
+
+  .kpi-box {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-charts {
+    padding: 30px 20px;
+  }
+
+  .kpi-charts h2 {
+    font-size: 28px;
+  }
+
+  .kpi-boxes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .chart-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .chart-title {
+    font-size: 17px;
+  }
+
+  .kpi-box {
+    font-size: 15px;
+    padding: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .kpi-charts {
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .kpi-boxes {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .chart-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .kpi-box {
+    font-size: 18px;
+    padding: 22px;
+  }
+
+  .chart-title {
+    font-size: 20px;
+  }
+}

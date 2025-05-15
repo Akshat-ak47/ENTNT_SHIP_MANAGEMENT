@@ -131,3 +131,100 @@
   margin-top: 5px;
   color: #555;
 }
+
+/* Tablet screens (≤ 768px) */
+@media screen and (max-width: 768px) {
+  .component-manager {
+    padding: 1.5rem;
+    width: 98vw;
+  }
+
+  .component-form,
+  .component-table,
+  .component-inspection {
+    width: 98vw;
+  }
+
+  .inspection-heading {
+    font-size: 1.6rem;
+    width: 98vw;
+  }
+
+  .label,
+  .select,
+  .textarea {
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .inspection-history li strong {
+    font-size: 1rem;
+  }
+
+  .inspection-history li p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile screens (≤ 480px) */
+@media screen and (max-width: 480px) {
+  .component-manager {
+    padding: 1rem;
+    width: 100vw;
+  }
+
+  .component-form,
+  .component-table,
+  .component-inspection {
+    width: 100vw;
+    padding: 1rem 0.75rem;
+  }
+
+  .inspection-heading {
+    font-size: 1.4rem;
+    width: 100%;
+  }
+
+  .component-form input,
+  .component-form select,
+  .component-form button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .select,
+  .textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .history-heading {
+    font-size: 1.1rem;
+  }
+
+  .inspection-history li {
+    padding: 12px;
+  }
+
+  .inspection-history li strong {
+    font-size: 0.95rem;
+  }
+
+  .inspection-history li p {
+    font-size: 0.8rem;
+  }
+}

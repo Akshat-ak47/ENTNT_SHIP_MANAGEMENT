@@ -126,3 +126,133 @@ textarea {
   color: #6b7280;
   margin-top: 6px;
 }
+
+/* Tablet screens (≤ 768px) */
+@media screen and (max-width: 768px) {
+  .component-inspection {
+    width: 95vw;
+    padding: 1.5rem;
+  }
+
+  .inspection-heading {
+    font-size: 24px;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .inspection-controls {
+    gap: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .form-group select,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+
+  .submit-btn {
+    padding: 8px 18px;
+    font-size: 0.95rem;
+  }
+
+  .inspection-history h3 {
+    font-size: 20px;
+  }
+
+  .inspection-history ul {
+    gap: 12px;
+  }
+
+  .inspection-history li {
+    padding: 14px;
+  }
+
+  .inspection-history li strong {
+    font-size: 1rem;
+  }
+
+  .inspection-history li span {
+    font-size: 0.9rem;
+  }
+
+  .inspection-history li p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile screens (≤ 480px) */
+@media screen and (max-width: 480px) {
+  .component-inspection {
+    width: 100vw;
+    padding: 1rem 1rem 1.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .inspection-heading {
+    font-size: 20px;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .inspection-controls {
+    gap: 12px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group select,
+  .form-group textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    min-height: 70px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    align-self: stretch;
+  }
+
+  .inspection-history h3 {
+    font-size: 18px;
+    padding: 0 0.5rem;
+  }
+
+  .inspection-history ul {
+    gap: 10px;
+  }
+
+  .inspection-history li {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .inspection-history li strong {
+    font-size: 0.95rem;
+  }
+
+  .inspection-history li span {
+    font-size: 0.85rem;
+  }
+
+  .inspection-history li p {
+    font-size: 0.8rem;
+  }
+}
