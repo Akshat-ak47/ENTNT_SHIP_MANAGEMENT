@@ -104,8 +104,9 @@ To run this project locally:
    ```
 The app will run at http://localhost:3000/ by default.
 
-##🤝 Contributing
-Contributions are welcome! If you'd like to improve this project:
+## 🤝 Contributing
+Although this project was originally created as an **assignment test for EnTNT**, you are more than welcome to contribute and enhance it further!
+If you'd like to improve this project:
 
     1. Fork the repository
 
@@ -113,10 +114,20 @@ Contributions are welcome! If you'd like to improve this project:
     ```git checkout -b feature/YourFeature```
 
     3. Commit your changes: git commit -m 'Add YourFeature'
-    ```git push origin feature/YourFeature```
+    ```git commit -m "Add YourFeature"```
 
     4. Push to the branch: git push origin feature/YourFeature
     ```git push origin feature/YourFeature```
 
-    5. Open a pull request
+    5. Open a pull request and describe your improvements
 
+For more details, please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## 🐞 Reporting Issues
+
+Please use the provided issue templates when reporting bugs or requesting features to help us manage and resolve them effectively.
+
+- [Bug Report Template](./.github/ISSUE_TEMPLATE/bug_report.md)
+- [Feature Request Template](./.github/ISSUE_TEMPLATE/feature_request.md)
+
+---
