@@ -4,6 +4,8 @@
 
 > **Note:** This is a simulated project created for learning purposes. It is frontend-only and runs entirely on the browser using localStorage.
 
+>> ⚠️ **Important:** This project is still under active development. While all core features should work as intended, you might encounter minor UI or styling inconsistencies.  
+> Feel free to report issues, contribute, or reach out at 📧 [akshat4900@gmail.com](mailto:akshat4900@gmail.com).
 ---
 
 ## 📌 Project Overview
