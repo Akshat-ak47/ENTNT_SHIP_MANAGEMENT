@@ -124,34 +124,56 @@
   font-weight: bold;
   background-color: #f0f0f0;
 }
+/* Menu toggler button - hidden by default */
+.menu-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
 
-/* Tablets and small laptops (width ≤ 768px) */
+/* When toggler is visible (for small screens) */
 @media (max-width: 768px) {
-  .top-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .dashboard-title {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-
-  .top-bar-buttons {
-    flex-direction: column;
-    align-items: flex-start;
+  .menu-toggler {
+    display: block;
+    order: 1;
     margin-left: 0;
   }
 
-  .dashboard-body {
-    margin-top: 0;
-    padding: 10px;
+  /* Hide buttons by default, show only when toggled */
+  .top-bar-buttons {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    position: absolute;       /* Take out of normal flow */
+    top: 150px;               /* Position 80px below the containing block */
+    left: 0;                 /* Align left to container */
+    background-color: #003366;
+    padding: 10px 0;
+    border-radius: 6px;
+    z-index: 100;            /* Ensure it appears on top */
   }
 
-  .content {
-    padding: 15px;
+  .top-bar-buttons.show {
+    display: flex;
+  }
+
+  .top-bar-buttons button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    border-top: 1px solid #00509e;
+  }
+
+  .top-bar-buttons button:first-child {
+    border-top: none;
   }
 }
+
 
 /* Very small devices (width ≤ 480px) */
 @media (max-width: 480px) {

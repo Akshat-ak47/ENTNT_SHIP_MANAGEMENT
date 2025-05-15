@@ -66,7 +66,7 @@ const NotificationCenter = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2 style={{ marginBottom: '20px' }}>Notification Center</h2>
+      <h2 style={{ marginBottom: '20px', marginTop: '30px' }}>Notification Center</h2>
       {notifications.length === 0 ? (
         <p>No active notifications</p>
       ) : (

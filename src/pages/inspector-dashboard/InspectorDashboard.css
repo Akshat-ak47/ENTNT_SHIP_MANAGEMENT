@@ -127,7 +127,7 @@
   }
 }
 
-/* Medium devices: Below 768px */
+/* Responsive Drawer Menu */
 @media (max-width: 768px) {
   .top-bar {
     flex-direction: column;
@@ -140,17 +140,42 @@
     margin-bottom: 10px;
   }
 
+  /* Removed absolute positioning to place hamburger below profile */
+  .hamburger {
+    display: block;
+    font-size: 26px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
   .nav-buttons {
+    display: none;
     flex-direction: column;
-    margin: 0 auto;
-    gap: 10px;
     width: 100%;
-    align-items: center;
+    margin-top: 10px;
+    background-color: #003366;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .nav-buttons.open {
+    display: flex;
+  }
+
+  .nav-buttons button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border-radius: 0;
+    border-bottom: 1px solid #004080;
   }
 
   .profile-section {
     align-self: flex-end;
     margin-top: 10px;
+  }
+  .profile-circle {
+    margin-left: -10px;
   }
 
   .management-card {
@@ -158,7 +183,7 @@
   }
 }
 
-/* Small devices: Below 480px */
+/* Extra small screens */
 @media (max-width: 480px) {
   .top-bar {
     padding: 10px;

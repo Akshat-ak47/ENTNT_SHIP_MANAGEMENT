@@ -14,6 +14,7 @@ const EngineerDashboard = () => {
   const [activeSection, setActiveSection] = useState('kpi');
   const [loading, setLoading] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
+  const [showMenu, setShowMenu] = useState(false); // <-- Added for toggler
   const profileRef = useRef(null);
 
   const email = localStorage.getItem('email');
@@ -87,14 +88,25 @@ const EngineerDashboard = () => {
   return (
     <div className="engineer-dashboard">
       <div className="top-bar">
-        <h1>Engineer Dashboard</h1>
-        <div className="top-bar-buttons">
-          <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
-          <button onClick={() => setActiveSection('assignedJobs')}>Assigned Jobs</button>
-          <button onClick={() => setActiveSection('calendar')}>Job Calendar</button>
-          <button onClick={() => setActiveSection('componentViewer')}>Component Viewer</button>
-          <button onClick={() => setActiveSection('notifications')}>Notifications</button>
+        <h1 className="dashboard-title">Engineer Dashboard</h1>
+
+        {/* Toggler button for small screens */}
+        <button
+          className="menu-toggler"
+          onClick={() => setShowMenu(!showMenu)}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+
+        <div className={`top-bar-buttons ${showMenu ? 'show' : ''}`}>
+          <button onClick={() => { setActiveSection('kpi'); setShowMenu(false); }}>KPI Charts</button>
+          <button onClick={() => { setActiveSection('assignedJobs'); setShowMenu(false); }}>Assigned Jobs</button>
+          <button onClick={() => { setActiveSection('calendar'); setShowMenu(false); }}>Job Calendar</button>
+          <button onClick={() => { setActiveSection('componentViewer'); setShowMenu(false); }}>Component Viewer</button>
+          <button onClick={() => { setActiveSection('notifications'); setShowMenu(false); }}>Notifications</button>
         </div>
+
         <div className="profile" ref={profileRef}>
           <div className="profile-icon" onClick={() => setShowProfile(!showProfile)}>
             👷

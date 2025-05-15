@@ -20,6 +20,7 @@ const InspectorDashboard = () => {
   const [activeSection, setActiveSection] = useState('kpi');
   const [loading, setLoading] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const profileRef = useRef(null);
   const email = localStorage.getItem('email');
@@ -74,8 +75,6 @@ const InspectorDashboard = () => {
     };
   }, []);
 
-  if (loading) return <div className="loading-screen">Loading...</div>;
-
   const sectionComponents = {
     kpi: <KPICharts ships={ships} components={components} jobs={jobs} />,
     inspectionManagement: (
@@ -111,27 +110,18 @@ const InspectorDashboard = () => {
     ),
   };
 
-  const renderSection = () => {
-    return sectionComponents[activeSection] || <div>Invalid section</div>;
-  };
+  const renderSection = () => sectionComponents[activeSection] || <div>Invalid section</div>;
+
+  if (loading) return <div className="loading-screen">Loading...</div>;
 
   return (
     <div className="inspector-dashboard">
       <div className="top-bar">
         <div className="dashboard-title">Inspector Dashboard</div>
-        <div className="nav-buttons">
-          <button onClick={() => setActiveSection('kpi')}>KPI Charts</button>
-          <button onClick={() => setActiveSection('inspectionManagement')}>Inspection Management</button>
-          <button onClick={() => setActiveSection('viewJobs')}>Jobs</button>
-          <button onClick={() => setActiveSection('viewShips')}>Ships</button>
-          <button onClick={() => setActiveSection('viewComponents')}>Components</button>
-          <button onClick={() => setActiveSection('notifications')}>Notifications</button>
-        </div>
+
+        {/* Profile Section */}
         <div className="profile-section" ref={profileRef}>
-          <div
-            className="profile-circle"
-            onClick={() => setShowProfile(!showProfile)}
-          >
+          <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
             👤
           </div>
           {showProfile && (
@@ -141,6 +131,21 @@ const InspectorDashboard = () => {
               <button className="logout" onClick={handleLogout}>Logout</button>
             </div>
           )}
+        </div>
+
+        {/* Hamburger Icon (moved below profile) */}
+        <div className="hamburger" onClick={() => setDrawerOpen(!drawerOpen)}>
+          ☰
+        </div>
+
+        {/* Navigation buttons (responsive) */}
+        <div className={`nav-buttons ${drawerOpen ? 'open' : ''}`}>
+          <button onClick={() => { setActiveSection('kpi'); setDrawerOpen(false); }}>KPI Charts</button>
+          <button onClick={() => { setActiveSection('inspectionManagement'); setDrawerOpen(false); }}>Inspection Management</button>
+          <button onClick={() => { setActiveSection('viewJobs'); setDrawerOpen(false); }}>Jobs</button>
+          <button onClick={() => { setActiveSection('viewShips'); setDrawerOpen(false); }}>Ships</button>
+          <button onClick={() => { setActiveSection('viewComponents'); setDrawerOpen(false); }}>Components</button>
+          <button onClick={() => { setActiveSection('notifications'); setDrawerOpen(false); }}>Notifications</button>
         </div>
       </div>
 

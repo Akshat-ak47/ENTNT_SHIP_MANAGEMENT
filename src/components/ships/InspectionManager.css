@@ -7,7 +7,10 @@
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Headings */
@@ -53,6 +56,8 @@ h3 {
   background: #f5f5f5;
   font-size: 1rem;
   transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .new-inspection-form input:focus,
@@ -82,14 +87,23 @@ h3 {
   box-shadow: 0 8px 20px rgba(0, 120, 255, 0.2);
 }
 
+/* Table container to enable horizontal scroll */
+.inspection-list {
+  overflow-x: auto; /* always allow horizontal scroll if needed */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
 /* Table Styling */
 .inspection-list table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
+  min-width: 700px; /* minimum width to prevent too narrow on small screens */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  display: table;
 }
 
 .inspection-list th,
@@ -97,6 +111,7 @@ h3 {
   padding: 16px 20px;
   text-align: left;
   border-bottom: 1px solid #eee;
+  white-space: nowrap;
 }
 
 .inspection-list thead {
@@ -125,6 +140,7 @@ h3 {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .inspection-list button:hover {
@@ -159,6 +175,7 @@ select {
   transition: all 0.3s ease;
 }
 
+/* Desktop Large Screens */
 @media (min-width: 1200px) {
   .inspection-manager {
     padding: 50px;
@@ -201,7 +218,8 @@ select {
 /* Mobile Devices (480px - 767px) */
 @media (max-width: 767px) and (min-width: 480px) {
   .inspection-manager {
-    padding: 20px;
+    padding: 20px 10px;
+    max-width: 480px; /* smaller max-width for small tablets and phones */
   }
 
   .inspection-manager h2 {
@@ -212,10 +230,14 @@ select {
     padding: 20px;
   }
 
-  .inspection-list table,
+  .inspection-list table {
+    font-size: 0.9rem;
+    padding: 0;
+    min-width: 700px; /* keep min-width for horizontal scroll */
+  }
+
   .inspection-list th,
   .inspection-list td {
-    font-size: 0.9rem;
     padding: 12px 10px;
   }
 
@@ -248,6 +270,8 @@ select {
   .new-inspection-form select {
     padding: 10px 12px;
     font-size: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .new-inspection-form button {
@@ -256,15 +280,21 @@ select {
     font-size: 0.9rem;
   }
 
-  .inspection-list table {
-    font-size: 0.85rem;
+  /* Horizontal scroll on small phones */
+  .inspection-list {
     overflow-x: auto;
+  }
+
+  .inspection-list table {
+    min-width: 600px;
+    width: 100%;
     display: block;
   }
 
   .inspection-list th,
   .inspection-list td {
     padding: 10px 8px;
+    white-space: nowrap;
   }
 
   .inspection-list button {

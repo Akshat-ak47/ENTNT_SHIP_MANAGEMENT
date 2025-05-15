@@ -67,31 +67,33 @@ const JobManager = () => {
       />
       <button onClick={handleAddJob}>Add Job</button>
 
-      <table className="job-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Ship ID</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {jobs.map((job) => (
-            <tr key={job.id}>
-              <td>{job.id}</td>
-              <td>{job.shipId}</td>
-              <td>{job.type}</td>
-              <td>{job.status}</td>
-              <td>
-                <button className="delete-button" onClick={() => handleDeleteJob(job.id)}>Delete</button>
-              </td>
+      <div className="table-wrapper">
+        <table className="job-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Ship ID</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {jobs.map((job) => (
+              <tr key={job.id}>
+                <td>{job.id}</td>
+                <td>{job.shipId}</td>
+                <td>{job.type}</td>
+                <td>{job.status}</td>
+                <td>
+                  <button className="delete-button" onClick={() => handleDeleteJob(job.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      </div>
   );
 };
 

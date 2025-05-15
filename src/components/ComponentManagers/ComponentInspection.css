@@ -130,8 +130,12 @@ textarea {
 /* Tablet screens (≤ 768px) */
 @media screen and (max-width: 768px) {
   .component-inspection {
-    width: 95vw;
+    width: 100%;
+    max-width: 768px;
     padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-x: hidden; /* prevent horizontal overflow */
+    margin: 0 auto; /* center container */
   }
 
   .inspection-heading {
@@ -154,6 +158,9 @@ textarea {
   .form-group textarea {
     padding: 10px;
     font-size: 0.95rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   textarea {
@@ -193,9 +200,13 @@ textarea {
 /* Mobile screens (≤ 480px) */
 @media screen and (max-width: 480px) {
   .component-inspection {
-    width: 100vw;
+    width: 100%;
+    max-width: 480px;
     padding: 1rem 1rem 1.5rem 1rem;
+    box-sizing: border-box;
     border-radius: 8px;
+    overflow-x: hidden; /* prevent horizontal overflow */
+    margin: 0 auto; /* center container */
   }
 
   .inspection-heading {
@@ -211,12 +222,17 @@ textarea {
 
   .form-group label {
     font-size: 0.9rem;
+    max-width: 100%;
+    width: 100%;
   }
 
   .form-group select,
   .form-group textarea {
     padding: 8px;
     font-size: 0.9rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   textarea {
