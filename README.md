@@ -3,15 +3,14 @@
 [![Deployed Project](https://img.shields.io/badge/View%20Live-ENTNT%20Dashboard-blue?style=flat-square&logo=github)](https://akshat-ak47.github.io/ENTNT_SHIP_MANAGEMENT)
 
 > **Note:** This is a simulated project created for learning purposes. It is frontend-only and runs entirely on the browser using localStorage.
-
->> ⚠️ **Important:** This project is still under active development. While all core features should work as intended, you might encounter minor UI or styling inconsistencies.  
-> Feel free to report issues, contribute, or reach out at 📧 [akshat4900@gmail.com](mailto:akshat4900@gmail.com).
 ---
 
 ## 📌 Project Overview
 
 The **ENTNT Ship Maintenance Dashboard** is a role-based frontend web application developed using **React**. It simulates a real-world ship maintenance system where users like Admins, Inspectors, and Engineers can manage and monitor ships, components, maintenance jobs, and inspections — all using browser `localStorage` for data persistence.
 
+>> ⚠️ **Important:** This project is still under active development. While all core features should work as intended, you might encounter minor UI or styling inconsistencies.  
+> Feel free to report issues, contribute, or reach out at 📧 [akshat4900@gmail.com](mailto:akshat4900@gmail.com).
 ---
 
 ## 🔐 Login Credentials for Testing
