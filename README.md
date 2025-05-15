@@ -111,13 +111,17 @@ If you'd like to improve this project:
    2. Create your feature branch
    ```bash
    git checkout -b feature/YourFeature
+   ```
 
    3. Commit your changes
+   ```
    git commit -m "Add YourFeature"
-
+   ```
+   
    4. Push to the branch
+   ```
    git push origin feature/YourFeature
-
+   ```
    5. Open a pull request and describe your improvements
 
 For more details, please see [CONTRIBUTING.md](./CONTRIBUTING.md).
