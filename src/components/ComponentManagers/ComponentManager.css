@@ -12,27 +12,70 @@ body {
 }
 
 .component-manager {
-  max-width: 100%;
-  width: 100%;
+  width: 94vw;
   padding: 2rem;
-  margin: 0 auto;
+  margin: 0;
   background-color: #f4f7fa;
 }
 
-.component-form,
-.component-table,
-.component-inspection {
+/* Make form inputs grow to fill available space */
+.component-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   width: 100%;
-  max-width: 100%;
-  padding: 1rem 0;
-  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 .component-form input,
-.component-form select,
-.component-form button {
-  margin: 0.5rem;
+.component-form select {
+  flex: 1 1 200px; /* allows responsiveness */
+  min-width: 100px;
 }
+
+.component-form button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Full-width table styling */
+.component-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.component-table th,
+.component-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.component-table th {
+  background-color: #003366;
+  color: white;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
 
 .component-inspection {
   padding: 1rem;

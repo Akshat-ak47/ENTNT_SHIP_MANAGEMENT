@@ -17,6 +17,7 @@
   position: relative;
   z-index: 1000;
   gap: 10px;
+  height: 70px;
   /* Added gap for better spacing */
 }
 
@@ -29,18 +30,31 @@
   text-overflow: ellipsis;
 }
 
-/* Sidebar buttons */
-.sidebar-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 0;
-  margin-right: 60px;
-  flex-shrink: 0;
+/* Container with relative positioning */
+.sidebar-buttons-container {
+  position: relative;
 }
 
+/* Buttons wrapper */
+.sidebar-buttons {
+  position: absolute;
+  top: 20px;       /* Slightly down */
+  right: 100px;     /* Slightly left from the right edge */
+  display: flex;
+  flex-direction: row;
+  gap: 16px;       /* Space between buttons */
+  margin: 0;
+  padding: 0;
+  z-index: 1010;
+}
+
+/* Individual buttons */
 .sidebar-buttons button {
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;       /* Tiny padding for clickable area */
+  background-color: transparent;
   color: white;
   border: none;
   font-size: 1rem;
@@ -56,11 +70,12 @@
 /* Profile section */
 .profile-section {
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 1020;
 }
 
 .profile-circle {
@@ -122,12 +137,16 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .management-card {
   background-color: #f2f2f2;
   padding: 20px;
   border-radius: 12px;
+  width: 100%;
+  max-width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -137,6 +156,8 @@
 
 .component-card {
   background-color: #e8f5e9;
+  width: 100%;
+  max-width: 100%;
 }
 
 .job-card {
@@ -146,6 +167,8 @@
 .management-card h2 {
   margin-bottom: 15px;
   color: #4B0082;
+  width: 100%;
+  max-width: 100%;
 }
 
 .management-card input,
@@ -167,6 +190,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 100%;
 }
 
 .management-card button:hover {
@@ -192,7 +217,7 @@
   .sidebar-buttons {
     flex-direction: row;
     flex-wrap: wrap;
-    margin-right: 0;
+    margin-right: -40vw;
     gap: 8px;
     width: 100%;
   }
