@@ -85,6 +85,24 @@
   cursor: pointer;
 }
 
+.download-kpi-btn {
+  background-color: #2980b9;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(41, 128, 185, 0.5);
+}
+
+.download-kpi-btn:hover {
+  background-color: #1f6391;
+}
 @media (max-width: 480px) {
   .kpi-charts {
     padding: 20px 15px;

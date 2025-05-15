@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -10,6 +10,7 @@ import {
   Legend,
   ArcElement,
 } from 'chart.js';
+import html2canvas from 'html2canvas';
 import './KPIChart_Inspector.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
@@ -17,6 +18,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
 const KPIChart_Inspector = () => {
   const [inspections, setInspections] = useState([]);
   const [timeRange, setTimeRange] = useState('monthly');
+  const dashboardRef = useRef(null);
 
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem('inspections'));
@@ -90,35 +92,58 @@ const KPIChart_Inspector = () => {
     ],
   };
 
+  // Handler to download dashboard as image
+  const downloadDashboardAsImage = async () => {
+    if (!dashboardRef.current) return;
+
+    try {
+      const canvas = await html2canvas(dashboardRef.current, { scale: 2 });
+      const imgData = canvas.toDataURL('image/png');
+
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = 'inspector_dashboard.png';
+      link.click();
+    } catch (error) {
+      console.error('Error capturing dashboard image:', error);
+    }
+  };
+
   return (
-    <div className="inspector-kpi-container">
-      <h2>Inspector KPI Dashboard</h2>
+    <>
+      <div className="inspector-kpi-container" ref={dashboardRef}>
+        <h2>Inspector KPI Dashboard</h2>
 
-      <div className="inspector-controls">
-        <label htmlFor="timeRange">Time Range:</label>
-        <select id="timeRange" value={timeRange} onChange={(e) => setTimeRange(e.target.value)}>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
-          <option value="yearly">Yearly</option>
-        </select>
-      </div>
-
-      <div className="inspector-charts">
-        <div className="inspector-chart-card">
-          <Bar data={barChartData} options={{ responsive: true }} />
+        <div className="inspector-controls">
+          <label htmlFor="timeRange">Time Range:</label>
+          <select id="timeRange" value={timeRange} onChange={(e) => setTimeRange(e.target.value)}>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
         </div>
-        <div className="inspector-chart-card">
-          <Doughnut data={doughnutChartData} options={{ responsive: true }} />
+
+        <div className="inspector-charts">
+          <div className="inspector-chart-card">
+            <Bar data={barChartData} options={{ responsive: true }} />
+          </div>
+          <div className="inspector-chart-card">
+            <Doughnut data={doughnutChartData} options={{ responsive: true }} />
+          </div>
+        </div>
+
+        <div className="inspector-stats">
+          <p><strong>Total Inspections:</strong> {filtered.length}</p>
+          <p><strong>Passed:</strong> {statusCount.Passed}</p>
+          <p><strong>Failed:</strong> {statusCount.Failed}</p>
+          <p><strong>Pending:</strong> {statusCount.Pending}</p>
         </div>
       </div>
 
-      <div className="inspector-stats">
-        <p><strong>Total Inspections:</strong> {filtered.length}</p>
-        <p><strong>Passed:</strong> {statusCount.Passed}</p>
-        <p><strong>Failed:</strong> {statusCount.Failed}</p>
-        <p><strong>Pending:</strong> {statusCount.Pending}</p>
-      </div>
-    </div>
+      <button className="download-btn" onClick={downloadDashboardAsImage}>
+        Download Dashboard as Image
+      </button>
+    </>
   );
 };
 

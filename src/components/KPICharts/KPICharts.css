@@ -60,6 +60,25 @@
   font-weight: 600;
 }
 
+.chart-card button {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  height: 30px;
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-left: -15px;
+  transition: background-color 0.3s;
+}
+
+.chart-card button:hover {
+  background-color: #1d4ed8; /* Tailwind's blue-700 */
+}
+
+
 /* For very small devices (phones) */
 @media (max-width: 480px) {
   .kpi-container {

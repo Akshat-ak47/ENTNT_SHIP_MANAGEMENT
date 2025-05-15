@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Line, Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -34,6 +34,9 @@ const KPICharts = ({ jobs, ships, components }) => {
     jobsCompleted: 1,
     componentsFixed: 1,
   });
+
+  const lineChartRef = useRef(null);
+  const doughnutChartRef = useRef(null);
 
   useEffect(() => {
     const totalShips = ships.length;
@@ -77,6 +80,17 @@ const KPICharts = ({ jobs, ships, components }) => {
 
   const handleTimeRangeChange = (e) => {
     setTimeRange(e.target.value);
+  };
+
+  const downloadChartAsImage = (chartRef, filename) => {
+    const chart = chartRef.current;
+    if (chart && chart.toBase64Image) {
+      const url = chart.toBase64Image();
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+    }
   };
 
   const lineChartData = {
@@ -159,10 +173,23 @@ const KPICharts = ({ jobs, ships, components }) => {
 
       <div className="charts-wrapper">
         <div className="chart-card">
-          <Line data={lineChartData} options={chartOptions} />
+          <Line ref={lineChartRef} data={lineChartData} options={chartOptions} />
+          <button
+            onClick={() => downloadChartAsImage(lineChartRef, 'line_chart.png')}
+            className="mt-2 p-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Export
+          </button>
         </div>
+
         <div className="chart-card">
-          <Doughnut data={doughnutChartData} options={chartOptions} />
+          <Doughnut ref={doughnutChartRef} data={doughnutChartData} options={chartOptions} />
+          <button
+            onClick={() => downloadChartAsImage(doughnutChartRef, 'doughnut_chart.png')}
+            className="mt-2 p-1 bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            Export
+          </button>
         </div>
       </div>
 
