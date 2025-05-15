@@ -91,17 +91,15 @@ To run this project locally:
    ```bash
    git clone https://github.com/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git
    cd ENTNT_SHIP_MANAGEMENT
-   ```
 
 2. **Install Dependencies**
    ```bash
    npm install
-   ```
 
 2. **Start Development Server**
    ```bash
    npm start
-   ```
+   
 The app will run at http://localhost:3000/ by default.
 
 ## 🤝 Contributing
