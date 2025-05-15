@@ -21,6 +21,10 @@ const EngineerDashboard = () => {
   const engineerId = localStorage.getItem('userId');
 
   useEffect(() => {
+    document.title = 'Engineer Dashboard';
+  }, []);
+
+  useEffect(() => {
     const fetchData = () => {
       setNotifications(JSON.parse(localStorage.getItem('notifications')) || []);
       setLoading(false);

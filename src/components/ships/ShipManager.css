@@ -37,3 +37,75 @@ button {
 .delete-button {
   background-color: #e53935;
 }
+
+/* Large desktops (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .ship-table {
+    font-size: 18px;
+  }
+
+  input, button {
+    font-size: 17px;
+    padding: 10px 14px;
+  }
+}
+
+/* Medium devices like tablets (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .ship-table {
+    font-size: 15px;
+  }
+
+  input, button {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  .ship-table th,
+  .ship-table td {
+    padding: 8px;
+  }
+}
+
+/* Small tablets and large phones (480px - 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .ship-table {
+    font-size: 14px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 7px 10px;
+  }
+
+  .ship-table th,
+  .ship-table td {
+    padding: 6px;
+  }
+}
+
+/* Mobile phones (max-width: 479px) */
+@media (max-width: 479px) {
+  .ship-table {
+    font-size: 13px;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .ship-table th,
+  .ship-table td {
+    padding: 6px 4px;
+    font-size: 13px;
+  }
+
+  input, button {
+    font-size: 13px;
+    padding: 6px 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 8px;
+  }
+}

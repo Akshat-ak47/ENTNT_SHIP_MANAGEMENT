@@ -42,3 +42,61 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* Medium screens (tablets and below) */
+@media (max-width: 1024px) {
+  .job-table th,
+  .job-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .job-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  input,
+  select,
+  button {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 6px 0;
+  }
+
+  button {
+    padding: 10px;
+  }
+}
+
+/* Extra-small screens (old phones <480px) */
+@media (max-width: 480px) {
+  .job-table th,
+  .job-table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .delete-button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}

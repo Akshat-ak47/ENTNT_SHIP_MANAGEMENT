@@ -13,6 +13,10 @@ const LoginPage = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [role, setRole] = useState('Admin');
 
+  useEffect(() => {
+    document.title = 'Login | ENTNT Ship Management';
+  }, []);
+
   const validateForm = () => {
     if (!email.trim() || !password.trim()) {
       setErrorMsg('Both fields are required.');

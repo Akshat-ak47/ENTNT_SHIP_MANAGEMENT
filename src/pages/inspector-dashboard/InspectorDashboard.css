@@ -119,16 +119,74 @@
   padding: 50px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Tablet: Below 1024px */
+@media (max-width: 1024px) {
   .nav-buttons {
+    margin-left: 40px;
+    gap: 12px;
+  }
+}
+
+/* Medium devices: Below 768px */
+@media (max-width: 768px) {
+  .top-bar {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
   }
 
   .dashboard-title {
     text-align: center;
+    width: 100%;
     margin-bottom: 10px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .profile-section {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .management-card {
+    min-width: 100%;
+  }
+}
+
+/* Small devices: Below 480px */
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 10px;
+  }
+
+  .dashboard-title {
+    font-size: 20px;
+  }
+
+  .nav-buttons button {
+    font-size: 14px;
+  }
+
+  .profile-circle {
+    font-size: 20px;
+  }
+
+  .profile-dropdown {
+    width: 180px;
+    font-size: 12px;
+  }
+
+  .profile-dropdown button {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .dashboard-body {
+    padding: 10px;
   }
 }

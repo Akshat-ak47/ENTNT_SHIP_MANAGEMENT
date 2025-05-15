@@ -59,3 +59,50 @@
   color: #111827;
   font-weight: 600;
 }
+
+/* For very small devices (phones) */
+@media (max-width: 480px) {
+  .kpi-container {
+    padding: 10px;
+  }
+
+  .kpi-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .time-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time-selector label,
+  .time-selector select {
+    width: 100%;
+  }
+
+  .chart-card {
+    height: 300px;
+  }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .kpi-container {
+    padding: 15px;
+  }
+
+  .chart-card {
+    height: 320px;
+  }
+
+  .kpi-container h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* For large desktops */
+@media (min-width: 1200px) {
+  .charts-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

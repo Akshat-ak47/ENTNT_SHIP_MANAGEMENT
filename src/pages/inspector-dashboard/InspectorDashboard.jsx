@@ -26,6 +26,10 @@ const InspectorDashboard = () => {
   const role = localStorage.getItem('role');
 
   useEffect(() => {
+    document.title = 'Inspector Dashboard';
+  }, []);
+
+  useEffect(() => {
     const fetchData = () => {
       try {
         setShips(JSON.parse(localStorage.getItem('ships')) || []);

@@ -28,6 +28,10 @@ const AdminDashboard = () => {
   const role = localStorage.getItem('role');
 
   useEffect(() => {
+    document.title = 'Admin';
+  }, []);
+
+  useEffect(() => {
     const fetchData = () => {
       setShips(JSON.parse(localStorage.getItem('ships')) || []);
       setComponents(JSON.parse(localStorage.getItem('components')) || []);

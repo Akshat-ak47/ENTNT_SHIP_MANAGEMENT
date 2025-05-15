@@ -125,15 +125,62 @@
   background-color: #f0f0f0;
 }
 
+/* Tablets and small laptops (width ≤ 768px) */
 @media (max-width: 768px) {
   .top-bar {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .dashboard-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
   .top-bar-buttons {
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 0;
+  }
+
+  .dashboard-body {
+    margin-top: 0;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+}
+
+/* Very small devices (width ≤ 480px) */
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 8px 12px;
+  }
+
+  .dashboard-title {
+    font-size: 1rem;
+  }
+
+  .top-bar-buttons button {
+    font-size: 0.9rem;
+  }
+
+  .profile-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .profile-dropdown {
+    width: 180px;
+    font-size: 10px;
+  }
+
+  .profile-dropdown .logout-btn {
+    padding: 5px;
+    font-size: 0.8rem;
   }
 
   .content {
