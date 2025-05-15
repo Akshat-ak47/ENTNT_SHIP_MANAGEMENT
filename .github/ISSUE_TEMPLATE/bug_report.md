@@ -1,6 +1,4 @@
 ### 1. **Bug Report Template**
-
-```markdown
 ---
 name: 🐛 Bug Report
 about: Report a bug or UI issue
