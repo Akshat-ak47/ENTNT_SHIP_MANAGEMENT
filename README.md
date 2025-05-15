@@ -99,25 +99,28 @@ To run this project locally:
 2. **Start Development Server**
    ```bash
    npm start
-   
+
 The app will run at http://localhost:3000/ by default.
 
 ## 🤝 Contributing
 Although this project was originally created as an **assignment test for EnTNT**, you are more than welcome to contribute and enhance it further!
 If you'd like to improve this project:
 
-    1. Fork the repository
+   1. Fork the repository
 
-    2. Create your feature branch: git checkout -b feature/YourFeature
-    ```git checkout -b feature/YourFeature```
+   2. Create your feature branch: git checkout -b feature/YourFeature
+    ```bash
+    git checkout -b feature/YourFeature
 
-    3. Commit your changes: git commit -m 'Add YourFeature'
-    ```git commit -m "Add YourFeature"```
+   3. Commit your changes: git commit -m "Add YourFeature"
+    ```bash
+    git commit -m "Add YourFeature"
 
-    4. Push to the branch: git push origin feature/YourFeature
-    ```git push origin feature/YourFeature```
+ 4. Push to the branch: git push origin feature/YourFeature
+    ```bash
+    git push origin feature/YourFeature
 
-    5. Open a pull request and describe your improvements
+   5. Open a pull request and describe your improvements
 
 For more details, please see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
