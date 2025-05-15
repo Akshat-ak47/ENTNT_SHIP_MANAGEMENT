@@ -1,73 +1,121 @@
+# 🚢 ENTNT Ship Maintenance Dashboard (Frontend Only)
 
-# Getting Started with Create React App
+[![Deployed Project](https://img.shields.io/badge/View%20Live-ENTNT%20Dashboard-blue?style=flat-square&logo=github)](https://akshat-ak47.github.io/ENTNT_SHIP_MANAGEMENT)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Note:** This is a simulated project created for learning purposes. It is frontend-only and runs entirely on the browser using localStorage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Project Overview
 
-### `npm start`
+The **ENTNT Ship Maintenance Dashboard** is a role-based frontend web application developed using **React**. It simulates a real-world ship maintenance system where users like Admins, Inspectors, and Engineers can manage and monitor ships, components, maintenance jobs, and inspections — all using browser `localStorage` for data persistence.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔐 Login Credentials for Testing
 
-### `npm test`
+You can test the application using these hardcoded credentials. Make sure to select the **correct role** from the UI before logging in.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Role       | Email                | Password     |
+|------------|----------------------|--------------|
+| Admin      | admin@entnt.in       | admin123     |
+| Inspector  | inspector@entnt.in   | inspect123   |
+| Engineer   | engineer@entnt.in    | engine123    |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 👤 User Roles and Access
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔑 Login Page
+- Choose role: Admin, Inspector, or Engineer
+- Enter corresponding email and password
+- Role-based UI with specific permissions
+- Data stored in `localStorage` (simulated backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 🛠️ Admin Dashboard
+- View system KPIs (jobs, components, etc.)
+- Manage ships: Add/Delete
+- Manage components: Add/Delete
+- Manage jobs: Add/Delete
+- Manage users: Add/Delete
+- Notification center: View alerts
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🕵️ Inspector Dashboard
+- View inspection KPIs (passed, failed, pending)
+- Add/Delete inspections
+- View component inspection history
+- View/Add/Delete maintenance jobs
+- View notifications
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🧑‍🔧 Engineer Dashboard
+- View job KPIs (status, defects, completion trends)
+- Manage assigned jobs and update status:
+  - In Progress, Completed, Issue Found, Delayed, Not Started
+- View assigned components
+- Calendar for scheduled jobs
+- View notifications
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧰 Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Frontend**: React (with Functional Components & Hooks)
+- **Routing**: React Router
+- **State Management**: Context API
+- **Styling**: TailwindCSS
+- **Charts**: Recharts
+- **Persistence**: localStorage (no backend)
+- **Deployment**: GitHub Pages
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🚀 Live Demo
 
-### Analyzing the Bundle Size
+You can access the live app here:  
+🔗 [https://akshat-ak47.github.io/ENTNT_SHIP_MANAGEMENT](https://akshat-ak47.github.io/ENTNT_SHIP_MANAGEMENT)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🛠️ Installation & Local Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run this project locally:
 
-### Advanced Configuration
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Akshat-ak47/ENTNT_SHIP_MANAGEMENT.git
+   cd ENTNT_SHIP_MANAGEMENT
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-### Deployment
+2. **Start Development Server**
+   ```bash
+   npm start
+   ```
+The app will run at http://localhost:3000/ by default.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##🤝 Contributing
+Contributions are welcome! If you'd like to improve this project:
 
-### `npm run build` fails to minify
+    1. Fork the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# ENTNT_SHIP_MANAGEMENT
+    2. Create your feature branch: git checkout -b feature/YourFeature
+    ```git checkout -b feature/YourFeature```
+
+    3. Commit your changes: git commit -m 'Add YourFeature'
+    ```git push origin feature/YourFeature```
+
+    4. Push to the branch: git push origin feature/YourFeature
+    ```git push origin feature/YourFeature```
+
+    5. Open a pull request
+
