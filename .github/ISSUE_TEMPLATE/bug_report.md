@@ -1,10 +1,13 @@
 ### 1. **Bug Report Template**
+
+```yaml
 ---
 name: 🐛 Bug Report
 about: Report a bug or UI issue
 title: "[BUG] "
 labels: bug
 ---
+```
 
 ## 🐛 Describe the Bug
 
